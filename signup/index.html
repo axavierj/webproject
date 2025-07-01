@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="../js/components/header.js" defer></script>
+    <script type="module" src="../js/components/footer.js" defer></script>
+    <script type="module" src="../js/scripts/createAuth.js" defer></script>
+    <link rel="stylesheet" href="../styles/main.css" />
+    <title>Sign Up</title>
+  </head>
+  <body>
+    <div>
+      <app-header></app-header>
+
+      <main>
+        <form id="signup-form">
+          <h1>Create Account</h1>
+          <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required />
+          </div>
+
+          <div>
+            <label for="confirm-password">Confirm Password:</label>
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirm-password"
+              required
+            />
+          </div>
+
+          <button type="submit">Create Account</button>
+        </form>
+      </main>
+
+      <app-footer></app-footer>
+    </div>
+  </body>
+</html>
