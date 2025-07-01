@@ -9,6 +9,9 @@ const template = document.createElement("template");
 const style = new CSSStyleSheet();
 template.innerHTML = `
 <section>
+  <div class="search-bar">
+    <input type="text" id="search-input" placeholder="Search recipes..." />
+  </div>
   <recipe-list></recipe-list>
 </section>
 `;
@@ -32,6 +35,20 @@ section {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 1rem .5rem
   }
+    .search-bar {
+  padding: 1rem;
+  background-color: var(--lavender-web, #dee2ff);
+}
+
+.search-bar input {
+  width: 95%;
+  padding: 0.5rem;
+  margin-inline: auto;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  border-radius: 6px;
+}
+
 
   `);
 
@@ -45,8 +62,16 @@ class Recipe extends HTMLElement {
 
   async connectedCallback() {
     const res = await getRecipes(url);
-
+    const searchInput = this.shadowRoot.querySelector("#search-input");
     const list = this.shadowRoot.querySelector("recipe-list");
+
+    searchInput.addEventListener("input", (e) => {
+      const query = e.target.value.trim();
+      const filtered = this.filter({ query, list: res });
+      this.updateList(filtered);
+    });
+
+    list.setAttribute("list", JSON.stringify(res));
     //listen for view-recipe event
     list.addEventListener("view-recipe", (e) => {
       const recipeId = e.detail;
@@ -76,7 +101,6 @@ class Recipe extends HTMLElement {
       this.updateList(updatedList);
     });
 
-    list.setAttribute("list", JSON.stringify(res));
     // Listen for edit-recipe event
     list.addEventListener("edit-recipe", async (e) => {
       const recipeId = e.detail;
@@ -91,6 +115,13 @@ class Recipe extends HTMLElement {
   updateList(recipes) {
     const list = this.shadowRoot.querySelector("recipe-list");
     list.setAttribute("list", JSON.stringify(recipes));
+  }
+
+  filter({ query, list }) {
+    const filtered = list.filter((recipe) => {
+      return recipe.title.toLowerCase().includes(query.toLowerCase());
+    });
+    return filtered;
   }
 }
 // Define the custom element
