@@ -3,11 +3,12 @@ const style = new CSSStyleSheet();
 template.innerHTML = `
 <header>
   <section class="mobile-header">
-    <div>
+    <div class="logo">
       <h4>cooking</h4>
+      <icon-cookbook></icon-cookbook>
     </div>
     <div>
-    <button class="logout">logout</button>
+    <button class="logout"><icon-logout></icon-logout>logout</button>
       <button class="mobilMenu">&#9776;</button>
     </div>
   </section>
@@ -116,6 +117,11 @@ nav.open {
           .mobilMenu {
             display: none;
           }
+        }
+  .logo {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
         }
   `);
 

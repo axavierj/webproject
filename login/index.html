@@ -6,6 +6,19 @@
     <script type="module" src="../js/components/header.js" defer></script>
     <script type="module" src="../js/components/footer.js" defer></script>
     <script type="module" src="../js/scripts/userAuth.js" defer></script>
+    <script type="module" src="../js/components/icon-logout.js" defer></script>
+    <script type="module" src="../js/components/icon-login.js" defer></script>
+    <script type="module" src="../js/components/icon-email.js" defer></script>
+    <script
+      type="module"
+      src="../js/components/icon-cookbook.js"
+      defer
+    ></script>
+    <script
+      type="module"
+      src="../js/components/icon-password.js"
+      defer
+    ></script>
     <link rel="stylesheet" href="../styles/main.css" />
     <title>Login</title>
   </head>
@@ -16,13 +29,25 @@
       <main class="login-page">
         <form id="login-form">
           <h1>Login</h1>
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required />
+          <label for="email"><icon-email></icon-email>Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="email"
+            required
+          />
 
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" required />
+          <label for="password"><icon-password></icon-password>Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            autocomplete="current-password"
+            required
+          />
 
-          <button type="submit">Log In</button>
+          <button type="submit"><icon-login></icon-login>Log In</button>
           <p class="helper">
             Don't have an account? <a href="/signup">Sign up</a>
           </p>

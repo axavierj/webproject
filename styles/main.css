@@ -126,7 +126,7 @@ app-recipe,
 }
 
 #login-form .helper a {
-  color: var(--text-turquoise, #8e9aaf);
+  color: var(--cool-gray, #8e9aaf);
   text-decoration: none;
 }
 

@@ -6,6 +6,19 @@
     <script type="module" src="../js/components/header.js" defer></script>
     <script type="module" src="../js/components/footer.js" defer></script>
     <script type="module" src="../js/scripts/createAuth.js" defer></script>
+    <script type="module" src="../js/components/icon-logout.js" defer></script>
+    <script type="module" src="../js/components/icon-submit.js" defer></script>
+    <script type="module" src="../js/components/icon-email.js" defer></script>
+    <script
+      type="module"
+      src="../js/components/icon-cookbook.js"
+      defer
+    ></script>
+    <script
+      type="module"
+      src="../js/components/icon-password.js"
+      defer
+    ></script>
     <link rel="stylesheet" href="../styles/main.css" />
     <title>Sign Up</title>
   </head>
@@ -17,26 +30,43 @@
         <form id="signup-form">
           <h1>Create Account</h1>
           <div>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required />
-          </div>
-
-          <div>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required />
-          </div>
-
-          <div>
-            <label for="confirm-password">Confirm Password:</label>
+            <label for="email"><icon-email></icon-email>Email:</label>
             <input
-              type="password"
-              id="confirm-password"
-              name="confirm-password"
+              type="email"
+              id="email"
+              name="email"
+              autocomplete="email"
               required
             />
           </div>
 
-          <button type="submit">Create Account</button>
+          <div>
+            <label for="password"
+              ><icon-password></icon-password>Password:</label
+            >
+            <input
+              type="password"
+              id="password"
+              name="password"
+              autocomplete="new-password"
+              required
+            />
+          </div>
+
+          <div>
+            <label for="confirm-password"
+              ><icon-password></icon-password>Confirm Password:</label
+            >
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirm-password"
+              autocomplete="new-password"
+              required
+            />
+          </div>
+
+          <button type="submit"><icon-save></icon-save>Create Account</button>
         </form>
       </main>
 
