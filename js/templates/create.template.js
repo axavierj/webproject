@@ -75,8 +75,8 @@ style.replaceSync(`
 
   button[type="submit"] {
     align-self: flex-start;
-    background-color: var(--misty-rose, #efd3d7);
-    color: #444;
+    background-color: var(--button-bg, #efd3d7);
+    color: var(--text-turquoise, #8e9aaf);
     border: 1px solid #ccc;
     padding: 0.5rem 1rem;
     font-weight: bold;
@@ -85,7 +85,7 @@ style.replaceSync(`
   }
 
   button[type="submit"]:hover {
-    background-color: var(--lavender-web, #dee2ff);
+    background-color: var(--button-hover, #dee2ff);
   }
     .ingredients-section {
   display: flex;
@@ -127,7 +127,7 @@ style.replaceSync(`
 #ingredient-list li button {
   background: none;
   border: none;
-  color: #a00;
+  color: var(--text-turquoise);
   font-size: 1rem;
   cursor: pointer;
 }

@@ -31,13 +31,13 @@ style.replaceSync(`
 
 h1 {
   font-size: 1.5rem;
-  color: var(--cool-gray, #8e9aaf);
+  color: var(--text-turquoise, #8e9aaf);
   margin-bottom: 0.5rem;
 }
 
 h2 {
   font-size: 1.1rem;
-  color: #444;
+  color: var(--text-turquoise, #8e9aaf);
   margin: 0.5rem 0 0.25rem;
 }
 
@@ -54,7 +54,7 @@ ul li {
 p {
   white-space: pre-wrap;
   line-height: 1.6;
-  color: #333;
+  color: var(--text-turquoise, #8e9aaf);
 }
 
   `);

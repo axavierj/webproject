@@ -23,15 +23,15 @@ style.replaceSync(`
   :host {
           display: block;
           font-family: sans-serif;
-          background-color: var(--thistle, #cbc0d3);
-          color: #333;
+          background-color: var(--header-bg, #cbc0d3);
+          color: var(--text-turquoise, #8e9aaf);
           border-bottom: 1px solid #ccc;
         }
 
         header {
           display: flex;
           flex-direction: column;
-          color: var(--cool-gray);
+          color: var(--text-turquoise);
         }
 
         h4 {
@@ -78,13 +78,13 @@ nav.open {
         }
 
         button {
-          background-color: var(--misty-rose, #efd3d7);
+          background-color: var(--button-bg, #efd3d7);
           border: 1px solid #ccc;
           padding: 0.4rem 0.75rem;
           font-weight: bold;
           font-size: 0.9rem;
           border-radius: 4px;
-          color: #444;
+          color: var(--text-turquoise, #8e9aaf);
           cursor: pointer;
         }
 
