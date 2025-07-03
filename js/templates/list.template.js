@@ -90,6 +90,8 @@ aside li:hover {
   color: var(--text-turquoise, #8e9aaf);
 }
 
+.icon {
+  font-weight: bold;
 `);
 
 const listTemplate = {
