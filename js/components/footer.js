@@ -2,8 +2,8 @@ const template = document.createElement("template");
 template.innerHTML = `
 <style>
 footer {
-  background-color: var(--lavender-web, #dee2ff);
-  color: var(--cool-gray, #8e9aaf);
+  background-color: var(--header-bg, #dee2ff);
+  color: var(--text-turquoise, #8e9aaf);
   text-align: center;
   padding: 1rem;
   font-size: 0.9rem;

@@ -14,7 +14,7 @@ style.replaceSync(`
   height: 100%;
 }
   aside {
-  background-color: var(--lavender-web, #dee2ff);
+  background-color: var(--bg-card, #dee2ff);
   padding: 1rem;
   border-right: 1px solid #ccc;
   min-height: 100%;
@@ -35,13 +35,13 @@ aside li {
   padding: 0.5rem 0.75rem;
   border-radius: 6px;
   font-weight: bold;
-  color: var(--cool-gray, #8e9aaf);
+  color: var(--text-turquoise, #8e9aaf);
   cursor: pointer;
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
 aside li:hover {
-  background: var(--misty-rose, #efd3d7);
+  background: var(--accent-soft-pink, #efd3d7);
   transform: translateX(4px);
 }
   /* Button Base */
@@ -58,9 +58,9 @@ aside li:hover {
 
 /* View (Primary) */
 .btn-primary {
-  background-color: var(--misty-rose, #efd3d7);
+  background-color: var(--button-bg, #efd3d7);
   border-color: #e0bcbc;
-  color: #333;
+  color: var(--text-turquoise, #8e9aaf);
 }
 
 .btn-primary:hover {
@@ -69,9 +69,9 @@ aside li:hover {
 
 /* Edit (Secondary) */
 .btn-secondary {
-  background-color: var(--lavender-web, #dee2ff);
-  border-color: #c0c7f0;
-  color: #333;
+  background-color: var(--success-bg, #dee2ff);
+  border-color: #c8d1ff;
+  color: var(--text-turquoise, #8e9aaf);
 }
 
 .btn-secondary:hover {
@@ -80,14 +80,14 @@ aside li:hover {
 
 /* Delete (Danger) */
 .btn-danger {
-  background-color: #f8d7da;
-  border-color: #f5c2c7;
-  color: #a00;
+  background-color: var(--danger-bg, #f5c2c7);
+  border-color: #f1b0b7;
+  color: var(--text-turquoise, #8e9aaf);
 }
 
 .btn-danger:hover {
   background-color: #f1b0b7;
-  color: #700;
+  color: var(--text-turquoise, #8e9aaf);
 }
 
 `);

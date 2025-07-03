@@ -30,14 +30,14 @@ section {
 }
   .details {
     padding: 1rem;
-    background-color: var(--lavender-web, #dee2ff);
+    background-color: var(--header-bg, #dee2ff);
     border-radius: 6px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 1rem .5rem
   }
     .search-bar {
   padding: 1rem;
-  background-color: var(--lavender-web, #dee2ff);
+  background-color: var(--header-bg, #dee2ff);
 }
 
 .search-bar input {

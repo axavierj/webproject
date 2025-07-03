@@ -1,9 +1,22 @@
 :root {
-  --cool-gray: #8e9aafff;
   --thistle: #cbc0d3ff;
   --misty-rose: #efd3d7ff;
   --pale-purple: #feeafaff;
   --lavender-web: #dee2ffff;
+
+  --text-turquoise: #40e0d0;
+  --bg-light: #f0fdfc;
+  --bg-card: #e0f7f5;
+  --accent-soft-pink: #ffdce0;
+  --accent-lavender: #d9d6f9;
+  --cool-gray: #8ca0a0;
+
+  --header-bg: #defaf7;
+  --button-bg: #bff0ea;
+  --button-hover: #96e5dc;
+
+  --danger-bg: #ffe5e5;
+  --success-bg: #e0f8d9;
 }
 
 *,
@@ -18,6 +31,19 @@
 body {
   min-height: 100vh;
   overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+label {
+  margin: 0;
+  padding: 0;
+  color: var(--text-turquoise, #8e9aaf);
 }
 app-recipe,
 .create-recipe,
@@ -42,7 +68,7 @@ app-recipe,
   align-items: center;
   padding: 2rem 1rem;
   min-height: 100vh;
-  background-color: var(--lavender-web, #dee2ff);
+  background-color: var(--accent-lavender, #dee2ff);
 }
 
 #login-form {
@@ -61,13 +87,13 @@ app-recipe,
 #login-form h1 {
   margin: 0 0 1rem;
   font-size: 1.5rem;
-  color: var(--cool-gray, #8e9aaf);
+  color: var(--text-turquoise, #8e9aaf);
   text-align: center;
 }
 
 #login-form label {
   font-weight: bold;
-  color: #444;
+  color: var(--text-turquoise, #8e9aaf);
 }
 
 #login-form input {
@@ -78,8 +104,8 @@ app-recipe,
 }
 
 #login-form button {
-  background-color: var(--misty-rose, #efd3d7);
-  color: #333;
+  background-color: var(--button-bg, #efd3d7);
+  color: var(--text-turquoise, #8e9aaf);
   border: 1px solid #ccc;
   padding: 0.5rem 1rem;
   font-weight: bold;
@@ -90,17 +116,17 @@ app-recipe,
 }
 
 #login-form button:hover {
-  background-color: var(--lavender-web, #dee2ff);
+  background-color: var(--accent-lavender, #dee2ff);
 }
 
 #login-form .helper {
   font-size: 0.9rem;
   text-align: center;
-  color: #666;
+  color: var(--text-turquoise, #8e9aaf);
 }
 
 #login-form .helper a {
-  color: var(--cool-gray, #8e9aaf);
+  color: var(--text-turquoise, #8e9aaf);
   text-decoration: none;
 }
 
@@ -114,7 +140,7 @@ main {
   align-items: center;
   padding: 2rem 1rem;
   min-height: 100vh;
-  background-color: var(--lavender-web, #dee2ff);
+  background-color: var(--accent-lavender, #dee2ff);
 }
 
 #signup-form {
@@ -133,13 +159,13 @@ main {
 #signup-form h1 {
   margin: 0 0 1rem;
   font-size: 1.5rem;
-  color: var(--cool-gray, #8e9aaf);
+  color: var(--text-turquoise, #8e9aaf);
   text-align: center;
 }
 
 #signup-form label {
   font-weight: bold;
-  color: #444;
+  color: var(--text-turquoise, #8e9aaf);
 }
 
 #signup-form input {
@@ -150,8 +176,8 @@ main {
 }
 
 #signup-form button {
-  background-color: var(--misty-rose, #efd3d7);
-  color: #333;
+  background-color: var(--button-bg, #efd3d7);
+  color: var(--text-turquoise, #8e9aaf);
   border: 1px solid #ccc;
   padding: 0.5rem 1rem;
   font-weight: bold;
@@ -162,5 +188,5 @@ main {
 }
 
 #signup-form button:hover {
-  background-color: var(--lavender-web, #dee2ff);
+  background-color: var(--accent-lavender, #dee2ff);
 }
