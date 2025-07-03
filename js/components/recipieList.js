@@ -52,8 +52,8 @@ class RecipeList extends HTMLElement {
             <h3>${item.title}</h3>
             <div>
               <button id="${item.id}-view" class="btn btn-primary" data-id="${item.id}">View</button>
-              <button id="${item.id}-edit" class="btn btn-secondary">Edit</button>
-              <button id="${item.id}-delete" class="btn btn-danger">Delete</button>
+              <button id="${item.id}-edit" class="btn btn-secondary"><icon-edit></icon-edit>Edit</button>
+              <button id="${item.id}-delete" class="btn btn-danger"><icon-trash></icon-trash>Delete</button>
             </div>
           </div>
           `;
