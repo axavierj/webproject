@@ -41,7 +41,7 @@ template.innerHTML = `
     />
   </div>
 
-  <button type="submit">Save Recipe</button>
+  <button type="submit"><icon-save></icon-save>Save Recipe</button>
 </form>
 `;
 
