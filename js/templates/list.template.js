@@ -92,6 +92,15 @@ aside li:hover {
 
 .icon {
   font-weight: bold;
+}
+  /*600px breakpoint*/
+@media (min-width: 600px) {
+
+aside {
+    
+    width: fit-content;
+    margin-inline: auto;
+}
 `);
 
 const listTemplate = {
