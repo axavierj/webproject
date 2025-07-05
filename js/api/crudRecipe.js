@@ -1,10 +1,19 @@
+function authHeaders(token) {
+  return {
+    "Content-Type": "application/json",
+    ...(token && { Authorization: `Bearer ${token}` }),
+  };
+}
+function getToken() {
+  const token = sessionStorage.getItem("token");
+  return token;
+}
+
 export const postRecipe = async (recipe, url) => {
   try {
     const response = await fetch(url, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: authHeaders(getToken()),
       body: JSON.stringify(recipe),
     });
 
@@ -22,7 +31,10 @@ export const postRecipe = async (recipe, url) => {
 
 export const getRecipes = async (url) => {
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, {
+      method: "GET",
+      headers: authHeaders(getToken()),
+    });
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -36,7 +48,10 @@ export const getRecipes = async (url) => {
 
 export const getRecipeById = async (id, url) => {
   try {
-    const response = await fetch(`${url}/${id}`);
+    const response = await fetch(`${url}/${id}`, {
+      method: "GET",
+      headers: authHeaders(getToken()),
+    });
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -52,6 +67,7 @@ export const deleteRecipeById = async (id, url) => {
   try {
     const response = await fetch(`${url}/${id}`, {
       method: "DELETE",
+      headers: authHeaders(getToken()),
     });
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -66,9 +82,7 @@ export const updateRecipeById = async (id, recipe, url) => {
   try {
     const response = await fetch(`${url}/${id}`, {
       method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: authHeaders(getToken()),
       body: JSON.stringify(recipe),
     });
 
