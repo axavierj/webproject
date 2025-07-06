@@ -123,6 +123,15 @@ class Recipe extends HTMLElement {
     });
     return filtered;
   }
+
+  disconnectedCallback() {
+    const searchInput = this.shadowRoot.querySelector("#search-input");
+    const list = this.shadowRoot.querySelector("recipe-list");
+    searchInput.removeEventListener("input", this.handleSearch);
+    list.removeEventListener("view-recipe", this.handleViewRecipe);
+    list.removeEventListener("delete-recipe", this.handleDeleteRecipe);
+    list.removeEventListener("edit-recipe", this.handleEditRecipe);
+  }
 }
 // Define the custom element
 customElements.define("app-recipe", Recipe);
