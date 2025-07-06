@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="../js/components/header.js" defer></script>
     <script type="module" src="../js/components/footer.js" defer></script>
+    <script
+      type="module"
+      src="../js/components/toast-message.js"
+      defer
+    ></script>
     <script type="module" src="../js/scripts/userAuth.js" defer></script>
     <script type="module" src="../js/components/icon-logout.js" defer></script>
     <script type="module" src="../js/components/icon-login.js" defer></script>
@@ -25,7 +30,7 @@
   <body>
     <div>
       <app-header></app-header>
-
+      <toast-message id="toast"></toast-message>
       <main class="login-page">
         <form id="login-form">
           <h1>Login</h1>
