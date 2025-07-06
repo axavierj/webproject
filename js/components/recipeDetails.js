@@ -2,6 +2,8 @@ const template = document.createElement("template");
 const style = new CSSStyleSheet();
 template.innerHTML = `
 <main>
+<button id="print-button">Print Recipe</button>
+
   <h1 id="title">title</h1>
   <h2>Ingredients</h2>
   <ul id="ingredient-list">
@@ -57,6 +59,40 @@ p {
   line-height: 1.6;
   color: var(--text-turquoise, #8e9aaf);
 }
+#print-button {
+  background-color: var(--cool-gray, #8e9aaf);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#print-button:hover {
+  background-color: var(--misty-rose, #efd3d7);
+  color: #333;
+}
+
+@media print {
+  button {
+    display: none;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  * {
+    box-shadow: none !important;
+    background: none !important;
+  }
+}
+
 
   `);
 
@@ -69,11 +105,14 @@ class RecipeDetails extends HTMLElement {
   }
 
   connectedCallback() {
-    // You can add event listeners or other initialization code here
-    console.log("RecipeDetails component added to the DOM");
+    this.shadowRoot
+      .querySelector("#print-button")
+      .addEventListener("click", () => {
+        window.print();
+      });
   }
 
-  //geterr for the recipe name attribute
+  //getter for the recipe name attribute
   get recipeName() {
     return this.getAttribute("recipe-name");
   }
