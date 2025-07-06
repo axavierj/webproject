@@ -29,15 +29,20 @@ form.addEventListener("submit", async (e) => {
       toast.show(passwordsMatch.message, 3000, "error");
       return;
     }
+
     const user = await signup(authObj.email, authObj.password);
-    if (!user) {
-      toast.show("Signup failed. Please try again.", 3000, "error");
+    if (!user.user || !user.accessToken) {
+      toast.show(
+        user.message || "Signup failed. Please try again.",
+        3000,
+        "error"
+      );
       return;
     }
     toast.show("Signup successful!", 3000, "success");
     form.reset();
     //redirect to home page after signup
-    window.location.href = "/";
+    // window.location.href = "/";
   } catch (err) {
     submitButton.disabled = false;
     toast.show(err.message || "Something went wrong");

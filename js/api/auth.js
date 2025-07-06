@@ -20,9 +20,7 @@ export async function signup(email, password) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password }),
   });
-
-  if (!res.ok) throw new Error("Signup failed");
-  return res.json();
+  return await res.json();
 }
 
 export function logout() {
