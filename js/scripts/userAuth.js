@@ -1,5 +1,6 @@
 import { login } from "../api/auth.js";
 const loginForm = document.getElementById("login-form");
+const toast = document.querySelector("#toast");
 
 loginForm.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -9,12 +10,13 @@ loginForm.addEventListener("submit", async (event) => {
 
   const user = await login(email, password);
 
-  if (user) {
-    // Login successful
-    sessionStorage.setItem("user", JSON.stringify(user));
+  if (user.accessToken) {
     window.location.href = "/";
   } else {
-    // Login failed
-    alert("Login failed. Please try again.");
+    toast.show(
+      user.message || "Login failed. Please try again.",
+      3000,
+      "error"
+    );
   }
 });
