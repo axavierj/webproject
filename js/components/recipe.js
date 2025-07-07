@@ -64,14 +64,16 @@ class Recipe extends HTMLElement {
     const res = await getRecipes(url);
     const searchInput = this.shadowRoot.querySelector("#search-input");
     const list = this.shadowRoot.querySelector("recipe-list");
+    const savedSort = localStorage.getItem("sort-order") || "newest";
+    const sorted = this.sortRecipes(res, savedSort);
 
     searchInput.addEventListener("input", (e) => {
       const query = e.target.value.trim();
-      const filtered = this.filter({ query, list: res });
+      const filtered = this.filter({ query, list: sorted });
       this.updateList(filtered);
     });
 
-    list.setAttribute("list", JSON.stringify(res));
+    list.setAttribute("list", JSON.stringify(sorted));
     //listen for view-recipe event
     list.addEventListener("view-recipe", (e) => {
       const recipeId = e.detail;
@@ -122,6 +124,21 @@ class Recipe extends HTMLElement {
       return recipe.title.toLowerCase().includes(query.toLowerCase());
     });
     return filtered;
+  }
+
+  sortRecipes(recipes, mode) {
+    switch (mode) {
+      case "newest":
+        return recipes.sort((a, b) => b.id - a.id);
+      case "oldest":
+        return recipes.sort((a, b) => a.id - b.id);
+      case "az":
+        return recipes.sort((a, b) => a.title.localeCompare(b.title));
+      case "za":
+        return recipes.sort((a, b) => b.title.localeCompare(a.title));
+      default:
+        return recipes;
+    }
   }
 
   disconnectedCallback() {
