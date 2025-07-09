@@ -8,6 +8,7 @@
     <script type="module" src="../js/scripts/theme-loader.js"></script>
     <script type="module" src="../js/components/header.js" defer></script>
     <script type="module" src="../js/components/footer.js" defer></script>
+    <script type="module" src="../js/components/toggle.js" defer></script>
     <script
       type="module"
       src="../js/components/toast-message.js"
@@ -19,6 +20,7 @@
   <body>
     <div class="content">
       <app-header></app-header>
+      <toast-message id="toast"></toast-message>
 
       <main id="settings-page">
         <h1>Profile Settings</h1>
@@ -31,21 +33,16 @@
 
           <button id="update-email">Update Email</button>
 
-          <label for="new-password">New Password:</label>
-          <input
-            type="password"
-            id="new-password"
+          <toggle-password
+            label="New Password"
             name="new-password"
-            autocomplete="new-password"
-          />
-
-          <label for="confirm-password">Confirm Password:</label>
-          <input
-            type="password"
-            id="confirm-password"
+            id="new-password"
+          ></toggle-password>
+          <toggle-password
+            label="Confirm Password"
             name="confirm-password"
-            autocomplete="new-password"
-          />
+            id="confirm-password"
+          ></toggle-password>
 
           <button id="update-password">Update Password</button>
         </section>
@@ -73,7 +70,6 @@
         </section>
       </main>
 
-      <toast-message id="toast"></toast-message>
       <app-footer></app-footer>
     </div>
   </body>

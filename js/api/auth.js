@@ -1,4 +1,4 @@
-const API = "http://localhost:3000";
+export const API = "http://localhost:3000";
 
 export async function login(email, password) {
   const res = await fetch(`${API}/login`, {
