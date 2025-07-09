@@ -1,11 +1,11 @@
 import { updateEmailCall, updatePasswordCall } from "../api/user.js";
-import { url } from "../api/crudRecipe.js";
 import { comparePasswords } from "./utils.js";
 import { API, logout } from "../api/auth.js";
 
 const themeSelect = document.getElementById("theme");
 const sortSelect = document.getElementById("sort-order");
-const updateEmail = document.getElementById("new-email");
+const updateEmail = document.getElementById("update-email");
+const newEmail = document.getElementById("new-email");
 const updatePassword = document.getElementById("update-password");
 const toast = document.getElementById("toast");
 const logoutButton = document.getElementById("logout");
@@ -21,11 +21,17 @@ themeSelect.addEventListener("change", (e) => {
 
 // Update email address
 updateEmail.addEventListener("click", async () => {
+  const emailFormatValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newEmail);
+  if (!emailFormatValid) {
+    toast.show("Please enter a valid email format.", 3000, "error");
+    return;
+  }
+
   try {
-    const update = await updateEmailCall({ email: updateEmail, url });
+    const update = await updateEmailCall({ email: newEmail.value, url: API });
     toast.show(update.message || "Email updated!", 3000, "success");
   } catch (err) {
-    toast.show(update.message || err.message, 3000, "error");
+    toast.show(err?.message || "An error occurred", 3000, "error");
   }
 });
 
