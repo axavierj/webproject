@@ -1,56 +1,7 @@
-import {
-  getRecipeById,
-  getRecipes,
-  deleteRecipeById,
-  url,
-} from "../api/crudRecipe.js";
+import { getRecipes, deleteRecipeById, url } from "../api/crudRecipe.js";
 
-const template = document.createElement("template");
-const style = new CSSStyleSheet();
-template.innerHTML = `
-<section>
-  <div class="search-bar">
-    <input type="text" id="search-input" placeholder="Search recipes..." />
-  </div>
-  <recipe-list></recipe-list>
-</section>
-`;
-
-style.replaceSync(`
-  :host {
-  display: block;
-  height: 100%;
-}
-
-section {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  height: 100%;
-}
-  .details {
-    padding: 1rem;
-    background-color: var(--header-bg, #dee2ff);
-    border-radius: 6px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 1rem .5rem
-  }
-    .search-bar {
-  padding: 1rem;
-  background-color: var(--header-bg, #dee2ff);
-}
-
-.search-bar input {
-  width: 95%;
-  padding: 0.5rem;
-  margin-inline: auto;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  border-radius: 6px;
-}
-
-
-  `);
+import recipeTemplate from "../templates/recipe.template.js";
+const { template, style } = recipeTemplate;
 
 class Recipe extends HTMLElement {
   constructor() {
@@ -64,14 +15,17 @@ class Recipe extends HTMLElement {
     const res = await getRecipes(url);
     const searchInput = this.shadowRoot.querySelector("#search-input");
     const list = this.shadowRoot.querySelector("recipe-list");
+    const savedSort = localStorage.getItem("sort-order") || "newest";
+    const sorted = this.sortRecipes(res, savedSort);
 
-    searchInput.addEventListener("input", (e) => {
+    const handleSearch = this.debounce((e) => {
       const query = e.target.value.trim();
-      const filtered = this.filter({ query, list: res });
+      const filtered = this.filter({ query, list: sorted });
       this.updateList(filtered);
     });
+    searchInput.addEventListener("input", handleSearch);
 
-    list.setAttribute("list", JSON.stringify(res));
+    list.setAttribute("list", JSON.stringify(sorted));
     //listen for view-recipe event
     list.addEventListener("view-recipe", (e) => {
       const recipeId = e.detail;
@@ -117,11 +71,46 @@ class Recipe extends HTMLElement {
     list.setAttribute("list", JSON.stringify(recipes));
   }
 
+  debounce(fn, delay = 300) {
+    let timer;
+    return (...args) => {
+      clearTimeout(timer);
+      timer = setTimeout(() => fn.apply(this, args), delay);
+    };
+  }
+
   filter({ query, list }) {
-    const filtered = list.filter((recipe) => {
-      return recipe.title.toLowerCase().includes(query.toLowerCase());
+    const normalized = query.toLowerCase();
+
+    return list.filter((recipe) => {
+      const inTitle = recipe.title?.toLowerCase().includes(normalized);
+      const inInstructions = recipe.instructions
+        ?.toLowerCase()
+        .includes(normalized);
+      const inTags = recipe.tags?.some((tag) =>
+        tag.toLowerCase().includes(normalized)
+      );
+      const inIngredients = recipe.ingredients?.some((ing) =>
+        ing.name.toLowerCase().includes(normalized)
+      );
+
+      return inTitle || inInstructions || inTags || inIngredients;
     });
-    return filtered;
+  }
+
+  sortRecipes(recipes, mode) {
+    switch (mode) {
+      case "newest":
+        return recipes.sort((a, b) => b.id - a.id);
+      case "oldest":
+        return recipes.sort((a, b) => a.id - b.id);
+      case "az":
+        return recipes.sort((a, b) => a.title.localeCompare(b.title));
+      case "za":
+        return recipes.sort((a, b) => b.title.localeCompare(a.title));
+      default:
+        return recipes;
+    }
   }
 
   disconnectedCallback() {

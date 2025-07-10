@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Settings</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="../js/scripts/guard.js"></script>
+    <script type="module" src="../js/scripts/theme-loader.js"></script>
+    <script type="module" src="../js/components/header.js" defer></script>
+    <script type="module" src="../js/components/footer.js" defer></script>
+    <script type="module" src="../js/components/toggle.js" defer></script>
+    <script
+      type="module"
+      src="../js/components/toast-message.js"
+      defer
+    ></script>
+    <script type="module" src="../js/scripts/settings.js" defer></script>
+    <link rel="stylesheet" href="../styles/main.css" />
+  </head>
+  <body>
+    <div class="content">
+      <app-header></app-header>
+      <toast-message id="toast"></toast-message>
+
+      <main id="settings-page">
+        <h1>Profile Settings</h1>
+
+        <section>
+          <h2>Account</h2>
+
+          <label for="new-email">Email:</label>
+          <input type="text" id="new-email" name="new-email" />
+
+          <button id="update-email">Update Email</button>
+
+          <toggle-password
+            label="New Password"
+            name="new-password"
+            id="new-password"
+          ></toggle-password>
+          <toggle-password
+            label="Confirm Password"
+            name="confirm-password"
+            id="confirm-password"
+          ></toggle-password>
+
+          <p id="password-instructions" class="form-help">
+            Password must be at least 8 characters long and include:
+          </p>
+          <ul>
+            <li>One uppercase letter</li>
+            <li>One lowercase letter</li>
+            <li>One number</li>
+            <li>One special character (e.g., !@#$%)</li>
+          </ul>
+
+          <button id="update-password">Update Password</button>
+        </section>
+
+        <section>
+          <h2>Preferences</h2>
+
+          <label for="theme">Theme:</label>
+          <select id="theme">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+
+          <label for="sort-order">Default Sort Order:</label>
+          <select id="sort-order">
+            <option value="newest">Newest</option>
+            <option value="oldest">Oldest</option>
+            <option value="az">A–Z</option>
+            <option value="za">Z–A</option>
+          </select>
+        </section>
+
+        <section>
+          <button id="logout">Log Out</button>
+        </section>
+      </main>
+
+      <app-footer></app-footer>
+    </div>
+  </body>
+</html>

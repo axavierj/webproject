@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="../js/scripts/theme-loader.js"></script>
     <script type="module" src="../js/components/header.js" defer></script>
     <script type="module" src="../js/components/footer.js" defer></script>
     <script
@@ -76,6 +77,15 @@
               required
             />
           </div>
+          <p id="password-instructions" class="form-help">
+            Password must be at least 8 characters long and include:
+          </p>
+          <ul>
+            <li>One uppercase letter</li>
+            <li>One lowercase letter</li>
+            <li>One number</li>
+            <li>One special character (e.g., !@#$%)</li>
+          </ul>
 
           <button type="submit"><icon-save></icon-save>Create Account</button>
         </form>
