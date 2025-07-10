@@ -1,4 +1,4 @@
-import { logout } from "../api/auth.js";
+import { isLoggedIn, logout } from "../api/auth.js";
 import headerTemplate from "../templates/heder.template.js";
 const { template, style } = headerTemplate;
 function toggleNav(nav) {
@@ -22,6 +22,14 @@ class CookbookHeader extends HTMLElement {
     const nav = this.shadowRoot.querySelector("nav");
     const mobileMenu = this.shadowRoot.querySelector(".mobilMenu");
     const logoutBtn = this.shadowRoot.querySelector(".logout");
+    const hideElements = this.shadowRoot.querySelectorAll(".hide");
+
+    //check if user is logged in
+    if (isLoggedIn()) {
+      hideElements.forEach((el) => {
+        el.classList.remove("hide");
+      });
+    }
 
     mobileMenu.addEventListener("click", () => {
       toggleNav(nav);

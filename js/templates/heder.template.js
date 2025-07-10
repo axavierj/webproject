@@ -15,8 +15,8 @@ template.innerHTML = `
   <nav>
     <ul>
       <li><a href="/">home</a></li>
-      <li><a href="/create/">create</a></li>
-      <li><a href="/settings/">settings</a></li>
+      <li class="hide"><a href="/create/">create</a></li>
+      <li class="hide"><a href="/settings/">settings</a></li>
     </ul>
   </nav>
 </header>
