@@ -1,9 +1,5 @@
 import { signup } from "../api/auth.js";
-import {
-  comparePasswords,
-  validateEmail,
-  waitForTokenAndRedirect,
-} from "./utils.js";
+import { comparePasswords, validateEmail } from "./utils.js";
 
 const form = document.querySelector("#signup-form");
 const toast = document.querySelector("#toast");
