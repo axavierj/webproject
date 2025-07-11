@@ -1,5 +1,5 @@
 import { resetPassword } from "../api/auth.js";
-import { comparePasswords } from "../utils/passwordUtils.js";
+import { comparePasswords } from "./utils.js";
 const form = document.getElementById("reset-form");
 const token = new URLSearchParams(window.location.search).get("token");
 
@@ -17,10 +17,5 @@ form.addEventListener("submit", async (e) => {
   }
 
   const res = await resetPassword(token, password);
-  if (res.ok) {
-    alert("Password reset! You may log in now.");
-    window.location.href = "/login";
-  } else {
-    alert(res.message || "Something went wrong");
-  }
+  toast.show(res.message);
 });
