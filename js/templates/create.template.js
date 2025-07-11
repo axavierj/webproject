@@ -2,7 +2,7 @@ const template = document.createElement("template");
 const style = new CSSStyleSheet();
 template.innerHTML = `
 <form>
-  <div>
+  <div class="form-group">
     <label for="title">Recipe Title:</label>
     <input type="text" id="title" name="title" required />
   </div>

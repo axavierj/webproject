@@ -11,7 +11,7 @@
       src="../js/components/toast-message.js"
       defer
     ></script>
-    <script type="module" src="../js/scripts/userAuth.js" defer></script>
+    <script type="module" src="../js/scripts/requestPassword.js" defer></script>
     <script type="module" src="../js/components/icon-logout.js" defer></script>
     <script type="module" src="../js/components/icon-login.js" defer></script>
     <script type="module" src="../js/components/icon-email.js" defer></script>
@@ -33,8 +33,8 @@
       <app-header></app-header>
       <toast-message id="toast"></toast-message>
       <main class="login-page">
-        <form id="login-form">
-          <h1>Login</h1>
+        <form id="request-form">
+          <h1>Request Password Reset</h1>
           <div class="form-group">
             <label for="email"><icon-email></icon-email>Email</label>
             <input
@@ -46,25 +46,9 @@
             />
           </div>
 
-          <div class="form-group">
-            <label for="password"
-              ><icon-password></icon-password>Password</label
-            >
-            <input
-              type="password"
-              id="password"
-              name="password"
-              autocomplete="current-password"
-              required
-            />
-          </div>
-
-          <button type="submit"><icon-login></icon-login>Log In</button>
+          <button type="submit"><icon-login></icon-login>Request Reset</button>
           <p class="helper">
-            Don't have an account? <a href="/signup">Sign up</a>
-          </p>
-          <p class="helper">
-            Forgot your password? <a href="/request-password">Reset it</a>
+            Remembered your password? <a href="/login">Log in</a>
           </p>
         </form>
       </main>
