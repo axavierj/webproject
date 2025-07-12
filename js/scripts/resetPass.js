@@ -12,14 +12,12 @@ form.addEventListener("submit", async (e) => {
 
   const match = comparePasswords(password, confirm);
   if (!match.valid) {
-    toast.showMessage(match.message);
+    toast.show(match.message);
     return;
   }
 
   const res = await resetPassword(token, password);
   toast.show(res.message);
   form.reset();
-  if (res.status === 200 || res.status === 201) {
-    window.location.href = "/login.html";
-  }
+  window.location.href = "/login.html";
 });
