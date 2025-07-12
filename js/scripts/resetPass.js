@@ -18,4 +18,8 @@ form.addEventListener("submit", async (e) => {
 
   const res = await resetPassword(token, password);
   toast.show(res.message);
+  form.reset();
+  if (res.status === 200 || res.status === 201) {
+    window.location.href = "/login.html";
+  }
 });
