@@ -1,4 +1,4 @@
-export const API = "http://localhost:3000";
+export const API = " https://lrcc.onrender.com";
 
 export async function login(email, password) {
   const res = await fetch(`${API}/login`, {

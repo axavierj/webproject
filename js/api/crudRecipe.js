@@ -126,4 +126,4 @@ export const updateRecipeById = async (id, recipe, url) => {
   }
 };
 
-export const url = "http://localhost:3000/recipes";
+export const url = " https://lrcc.onrender.com/recipes";
