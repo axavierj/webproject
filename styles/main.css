@@ -108,7 +108,8 @@ app-recipe,
   background-color: var(--accent-lavender, #dee2ff);
 }
 
-#login-form {
+#login-form,
+#request-form {
   background-color: var(--pale-purple, #feeafa);
   padding: 2rem;
   border-radius: 12px;
@@ -121,26 +122,30 @@ app-recipe,
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
-#login-form h1 {
+#login-form h1,
+#request-form h1 {
   margin: 0 0 1rem;
   font-size: 1.5rem;
   color: var(--text-turquoise, #8e9aaf);
   text-align: center;
 }
 
-#login-form label {
+#login-form label,
+#request-form label {
   font-weight: bold;
   color: var(--text-turquoise, #8e9aaf);
 }
 
-#login-form input {
+#login-form input,
+#request-form input {
   padding: 0.5rem;
   border: 1px solid #aaa;
   border-radius: 6px;
   font-size: 1rem;
 }
 
-#login-form button {
+#login-form button,
+#request-form button {
   background-color: var(--button-bg, #efd3d7);
   color: var(--text-turquoise, #8e9aaf);
   border: 1px solid #ccc;
@@ -152,22 +157,26 @@ app-recipe,
   transition: background 0.2s ease;
 }
 
-#login-form button:hover {
+#login-form button:hover,
+#request-form button:hover {
   background-color: var(--accent-lavender, #dee2ff);
 }
 
-#login-form .helper {
+#login-form .helper,
+#request-form .helper {
   font-size: 0.9rem;
   text-align: center;
   color: var(--text-turquoise, #8e9aaf);
 }
 
-#login-form .helper a {
+#login-form .helper a,
+#request-form .helper a {
   color: var(--cool-gray, #8e9aaf);
   text-decoration: none;
 }
 
-#login-form .helper a:hover {
+#login-form .helper a:hover,
+#request-form .helper a:hover {
   text-decoration: underline;
 }
 
@@ -336,4 +345,65 @@ main {
 
 .toggle-switch input:checked + .slider:before {
   transform: translateX(18px);
+}
+
+#reset-password-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1rem;
+  background-color: var(--bg-light, #f0fdfc);
+}
+
+#reset-password-page h2 {
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+  color: var(--text-turquoise, #40e0d0);
+}
+
+#reset-form {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background-color: var(--bg-card, #e0f7f5);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+#reset-form label {
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+#reset-form input {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+  background: white;
+}
+
+#reset-form button {
+  background-color: var(--button-bg, #bff0ea);
+  border: none;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+#reset-form button:hover {
+  background-color: var(--button-hover, #96e5dc);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }

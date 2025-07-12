@@ -1,3 +1,5 @@
+import { logout } from "./auth.js";
+
 function authHeaders(token) {
   return {
     "Content-Type": "application/json",
@@ -17,6 +19,12 @@ export const postRecipe = async (recipe, url) => {
       body: JSON.stringify(recipe),
     });
 
+    if (response.status === 401) {
+      alert("Unauthorized access. Please log in again.");
+      logout();
+      throw new Error("Unauthorized access. Please log in again.");
+    }
+
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -35,6 +43,11 @@ export const getRecipes = async (url) => {
       method: "GET",
       headers: authHeaders(getToken()),
     });
+    if (response.status === 401) {
+      alert("Unauthorized access. Please log in again.");
+      logout();
+      throw new Error("Unauthorized access. Please log in again.");
+    }
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -52,6 +65,11 @@ export const getRecipeById = async (id, url) => {
       method: "GET",
       headers: authHeaders(getToken()),
     });
+    if (response.status === 401) {
+      alert("Unauthorized access. Please log in again.");
+      logout();
+      throw new Error("Unauthorized access. Please log in again.");
+    }
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -69,6 +87,11 @@ export const deleteRecipeById = async (id, url) => {
       method: "DELETE",
       headers: authHeaders(getToken()),
     });
+    if (response.status === 401) {
+      alert("Unauthorized access. Please log in again.");
+      logout();
+      throw new Error("Unauthorized access. Please log in again.");
+    }
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -85,6 +108,11 @@ export const updateRecipeById = async (id, recipe, url) => {
       headers: authHeaders(getToken()),
       body: JSON.stringify(recipe),
     });
+    if (response.status === 401) {
+      alert("Unauthorized access. Please log in again.");
+      logout();
+      throw new Error("Unauthorized access. Please log in again.");
+    }
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);

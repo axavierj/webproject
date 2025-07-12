@@ -36,3 +36,21 @@ export function getToken() {
 export function isLoggedIn() {
   return !!getToken();
 }
+
+export async function requestPasswordReset(email) {
+  const res = await fetch(`${API}/password-request`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email }),
+  });
+  return await res.json();
+}
+
+export async function resetPassword(token, password) {
+  const res = await fetch(`${API}/reset-password`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ token, password }),
+  });
+  return await res.json();
+}

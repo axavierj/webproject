@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script type="module" src="../js/scripts/theme-loader.js"></script>
+    <script type="module" src="../js/components/header.js" defer></script>
+    <script type="module" src="../js/components/footer.js" defer></script>
+    <script
+      type="module"
+      src="../js/components/toast-message.js"
+      defer
+    ></script>
+
+    <script type="module" src="../js/scripts/resetPass.js" defer></script>
+    <script type="module" src="../js/components/icon-logout.js" defer></script>
+    <script type="module" src="../js/components/icon-submit.js" defer></script>
+    <script type="module" src="../js/components/icon-email.js" defer></script>
+    <script
+      type="module"
+      src="../js/components/toast-message.js"
+      defer
+    ></script>
+    <script
+      type="module"
+      src="../js/components/icon-cookbook.js"
+      defer
+    ></script>
+    <script
+      type="module"
+      src="../js/components/icon-password.js"
+      defer
+    ></script>
+    <link rel="stylesheet" href="../styles/main.css" />
+    <title>Reset Password</title>
+  </head>
+  <body>
+    <div>
+      <app-header></app-header>
+      <main id="reset-password-page">
+        <form id="reset-form">
+          <h1>Reset Password</h1>
+          <toast-message id="toast"></toast-message>
+          <div class="form-group">
+            <label for="new-password">New Password</label>
+            <input type="password" id="new-password" required />
+          </div>
+          <div class="form-group">
+            <label for="confirm-password">Confirm Password</label>
+            <input type="password" id="confirm-password" required />
+          </div>
+          <div>
+            <p id="password-instructions" class="form-help">
+              Password must be at least 8 characters long and include:
+            </p>
+            <ul>
+              <li>One uppercase letter</li>
+              <li>One lowercase letter</li>
+              <li>One number</li>
+              <li>One special character (e.g., !@#$%)</li>
+            </ul>
+          </div>
+          <button type="submit">Reset Password</button>
+        </form>
+      </main>
+      <app-footer></app-footer>
+    </div>
+  </body>
+</html>

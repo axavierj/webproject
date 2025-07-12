@@ -17,7 +17,6 @@ class Recipe extends HTMLElement {
     const list = this.shadowRoot.querySelector("recipe-list");
     const savedSort = localStorage.getItem("sort-order") || "newest";
     const sorted = this.sortRecipes(res, savedSort);
-
     const handleSearch = this.debounce((e) => {
       const query = e.target.value.trim();
       const filtered = this.filter({ query, list: sorted });
