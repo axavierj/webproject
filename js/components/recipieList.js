@@ -8,10 +8,7 @@ class RecipeList extends HTMLElement {
     shadow.adoptedStyleSheets = [style];
   }
 
-  connectedCallback() {
-    // You can add event listeners or other initialization code here
-    console.log("RecipieList component added to the DOM");
-  }
+  connectedCallback() {}
 
   //getter for the list atteribute
   get list() {
