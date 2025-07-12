@@ -3,7 +3,7 @@ const style = new CSSStyleSheet();
 template.innerHTML = `
 <aside>
   <ul>
-    <li>no items</li>
+    <skeleton-loader></skeleton-loader>
   </ul>
 </aside>
 `;

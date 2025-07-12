@@ -5,6 +5,7 @@ template.innerHTML = `
   <div class="search-bar">
     <input type="text" id="search-input" placeholder="Search recipes..." />
   </div>
+  
   <recipe-list></recipe-list>
 </section>
 `;
