@@ -1,5 +1,5 @@
 import { isLoggedIn } from "../api/auth.js";
 
 if (!isLoggedIn()) {
-  window.location.href = "/login";
+  window.location.href = "/webproject/login";
 }
